@@ -24,7 +24,9 @@ package Step_Parser is
       Tok_Semicolon,
       Tok_Equals,
       Tok_Asterisk,
-      Tok_Dollar);
+      Tok_Dollar,
+      Tok_Less,
+      Tok_Greater);
 
    -- Token representation
    type Token is record
