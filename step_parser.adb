@@ -43,7 +43,6 @@ package body Step_Parser is
    procedure Fetch_Next (State : in out Lexer_State; Tok : out Token) is
       C : Character;
       Start_Cursor : Positive;
-      Buf : Unbounded_String;
    begin
       Tok.Kind := Tok_None;
       Tok.Lexeme := Null_Unbounded_String;
@@ -214,6 +213,8 @@ package body Step_Parser is
          when '=' => Tok.Kind := Tok_Equals;
          when '*' => Tok.Kind := Tok_Asterisk;
          when '$' => Tok.Kind := Tok_Dollar;
+         when '<' => Tok.Kind := Tok_Less;
+         when '>' => Tok.Kind := Tok_Greater;
          when others => 
             raise Syntax_Error with "Unexpected character: " & C;
       end case;
